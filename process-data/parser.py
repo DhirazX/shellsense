@@ -38,8 +38,3 @@ def parse_tldr_files(file_path):
         for desc, cmd in examples
     ]
     
-if __name__ == "__main__":
-    records = parse_tldr_files("data/tldr/pages/linux/aa-decode.md")
-    print(len(records)) 
-    for r in records:
-        print(r)
