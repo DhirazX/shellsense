@@ -3,7 +3,7 @@ import sqlite3
 from pathlib import Path
 from parser import parse_tldr_files
 
-PAGES_DIR = Path("data/tldr/pages")
+PAGES_DIR = Path("data/raw/tldr/pages")
 PLATFORMS = ["common", "linux"]
 DB_PATH = Path("data/howto.db")
 
