@@ -44,12 +44,18 @@ def build_corpus():
         tokens =[]
         for v in c.values():
             tokens.extend(v)
-            flat_corpus.append(tokens)
+        flat_corpus.append(tokens)
 
-    return flat_corpus    
+    return flat_corpus, rows
 
+def rank_documents(query):
+    flat_corpus, rows = build_corpus()
+    tokenized_query = re.findall(r"[a-z0-9]+", query.lower())
 
+    bm25 = BM25Okapi(flat_corpus)
+    top_doc = bm25.get_top_n(tokenized_query, rows, n=1)
+    print(top_doc)
 
 if __name__ == "__main__":
-    build_corpus()
+    rank_documents("sort repo")
 
